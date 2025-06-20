@@ -1,0 +1,275 @@
+/* Reset básico e Box-sizing para todas as propriedades */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos gerais do corpo da página */
+body {
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  color: #333;
+  background-color: #f8f9fa; /* cinza muito claro para o fundo */
+  overflow-x: hidden; /* Evita barra de rolagem horizontal */
+  scroll-behavior: smooth; /* Rolagem suave nativa (para navegadores que suportam) */
+}
+
+/* Esconder elementos inicialmente para a animação de entrada JS */
+section.hide {
+  opacity: 0;
+  transform: translateY(30px); /* Começa um pouco para baixo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave */
+}
+
+/* Mostrar elementos quando a classe 'show' é adicionada pelo JS */
+section.show {
+  opacity: 1;
+  transform: translateY(0); /* Volta à posição original */
+}
+
+/* --- Header --- */
+header {
+  background-color: #212529; /* Cor de fundo escura do Bootstrap */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1020; /* Garante que fique acima de outros elementos */
+}
+
+header h1 {
+  font-weight: 700;
+  color: #ffffff; /* Cor do título H1 no header */
+}
+
+/* Menu de navegação */
+#main-nav .nav-link {
+  font-weight: 600;
+  color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important; /* Cor do link, !important para sobrescrever Bootstrap */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#main-nav .nav-link:hover,
+#main-nav .nav-link:focus {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* Botão de menu hambúrguer no mobile */
+#menu-toggle {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* --- Hero Section --- */
+#hero {
+  background-image: url("../img/par-pistoes-1500-600.png"); /* Imagem de fundo placeholder */
+  background-size: cover;
+  background-position: center;
+  min-height: 500px; /* Altura mínima */
+  position: relative;
+  /* Overlay escuro para melhorar a leitura do texto */
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay preto com 50% de opacidade */
+  z-index: 0;
+}
+#hero .container {
+  position: relative; /* Coloca o conteúdo acima do overlay */
+  z-index: 1;
+}
+#hero h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(85, 85, 85, 0.905);
+}
+#hero p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+#hero .btn-light {
+  background-color: #f8f9fa;
+  color: #212529;
+  font-weight: 600;
+  border-radius: 50px; /* Botão mais arredondado */
+  padding: 0.8rem 2.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#hero .btn-light:hover {
+  background-color: #e2e6ea;
+  color: #212529;
+}
+
+/* --- Seções em Geral --- */
+section {
+  padding: 6rem 0; /* Espaçamento padrão para seções */
+}
+section#servicos {
+  background-color: #ffffff; /* Fundo branco para a seção de serviços */
+}
+section#sobre {
+  background-color: #f8f9fa; /* Fundo cinza claro para a seção sobre */
+}
+section#contato {
+  background-color: #ffffff; /* Fundo branco para a seção de contato */
+}
+
+section h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+}
+
+/* Cards de Serviço (Bootstrap Cards) */
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+  color: #343a40;
+  font-weight: 600;
+}
+.card-text {
+  font-size: 0.95rem;
+}
+
+/* --- Contato --- */
+address p {
+  font-size: 1.05rem;
+  color: #555;
+}
+address a {
+  color: #007bff; /* Cor de link padrão do Bootstrap */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+address a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Formulário de Contato */
+.form-label {
+  font-weight: 600;
+  color: #343a40;
+}
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+.btn-dark {
+  background-color: #212529;
+  border-color: #212529;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-dark:hover {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #212529;
+  color: #adb5bd; /* Um cinza claro para texto no footer */
+  font-size: 0.9rem;
+}
+.social-icons a {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* --- Responsividade (Ajustes Adicionais além do Bootstrap) --- */
+@media (max-width: 767.98px) {
+  /* Para telas menores que 768px (Mobile) */
+  header .container {
+    flex-direction: column; /* Empilha logo e navegação */
+    align-items: flex-start; /* Alinha à esquerda no mobile */
+  }
+  header h1 {
+    margin-bottom: 1rem;
+  }
+  #main-nav {
+    width: 100%; /* Menu ocupa toda a largura */
+    margin-top: 0.5rem;
+    display: none; /* Esconde o menu por padrão no mobile, será toggled via JS */
+  }
+  #main-nav .nav {
+    flex-direction: column; /* Links do menu empilham verticalmente */
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+  }
+  #main-nav .nav-item {
+    margin-bottom: 5px;
+  }
+  #main-nav .nav-link {
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+  #menu-toggle {
+    position: absolute; /* Posiciona o botão de toggle */
+    right: 15px;
+    top: 15px;
+  }
+
+  #hero h2 {
+    font-size: 2.5rem;
+  }
+  #hero p {
+    font-size: 1.1rem;
+  }
+  section {
+    padding: 4rem 0; /* Reduz o padding das seções no mobile */
+  }
+  section h2 {
+    font-size: 2rem;
+  }
+  .img-fluid.rounded {
+    max-width: 80%; /* Ajusta o tamanho da imagem em telas menores */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Para telas muito pequenas */
+  #hero h2 {
+    font-size: 2rem;
+  }
+  #hero p {
+    font-size: 1rem;
+  }
+  section h2 {
+    font-size: 1.8rem;
+  }
+}
